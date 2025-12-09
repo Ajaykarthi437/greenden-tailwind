@@ -10,32 +10,47 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body>
-    <!--Responsive Navbar-->
+<body class="relative">
+
+    <!-- Responsive Navbar -->
     <nav class="bg-green-100 p-3 flex items-center justify-between shadow-2xl sticky top-0 z-10">
-    <h1 class="text-2xl">Greenden</h1>
+        <h1 class="text-2xl font-bold">Greenden</h1>
 
-    <!-- Hamburger (mobile) -->
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" 
-        viewBox="0 0 24 24" stroke-width="1.5" 
-        stroke="currentColor" class="size-6 md:hidden">
-        <path stroke-linecap="round" stroke-linejoin="round" 
-              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-    </svg>
+        <!-- Hamburger (mobile) -->
+        <button id="openMenu" class="md:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+        </button>
 
-    <!-- Desktop Menu -->
-    <ul class="flex gap-5 text-grey-600 hidden md:flex">
-        <li class="hover:underline hover:text-black">
-            <a href="index.html">Home</a>
-        </li>
-        <li class="hover:underline hover:text-black">
-            <a href="">Products</a>
-        </li>
-        <li class="hover:underline hover:text-black">
-            <a href="">Contact</a>
-        </li>
-    </ul>
-</nav>
+        <!-- Desktop Menu -->
+        <ul class="flex gap-5 text-grey-600 hidden md:flex">
+            <li class="hover:underline hover:text-black"><a href="index.html">Home</a></li>
+            <li class="hover:underline hover:text-black"><a href="products.html">Products</a></li>
+            <li class="hover:underline hover:text-black"><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Overlay -->
+    <div id="overlay"
+        class="hidden fixed inset-0 bg-black bg-opacity-50 z-20"></div>
+
+    <!-- Sidebar Menu -->
+    <div id="sideMenu"
+        class="fixed top-0 left-0 w-64 h-full bg-white shadow-2xl p-5 
+        -translate-x-full transition-transform duration-300 z-30">
+
+        <button id="closeMenu" class="text-2xl font-bold mb-5">✖</button>
+
+        <ul class="flex flex-col gap-5 text-lg">
+            <li><a href="index.html" class="hover:underline">Home</a></li>
+            <li><a href="products.html" class="hover:underline">Products</a></li>
+            <li><a href="contact.html" class="hover:underline">Contact</a></li>
+        </ul>
+    </div>
 
 <section class="bg-white dark:bg-gray-900">
   <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
@@ -68,6 +83,8 @@
         <p>@ 2021 Greenden.com</p>
 
     </section>
+
+    <script src="contact.js"></script>
 
 </body>
 
